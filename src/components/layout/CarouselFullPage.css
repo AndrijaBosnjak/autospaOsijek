@@ -1,0 +1,37 @@
+.carousel-indicators {
+  margin-bottom: 3.5%;
+}
+
+/* .carousel-item.active, .carousel-item .view {
+  height: 40vh!important;
+}
+.carousel-item.active, .carousel-item  {
+  height: 40vh!important;
+} */
+
+.carousel-item img {
+  object-fit: cover;
+  width:100%!important;
+  height: 100% !important;
+}
+
+.carousel-caption {
+  width: 100%;
+  left: 0%;
+  margin-bottom: 3.5%;
+  padding-top: 0.2% ;
+  padding-bottom: 0.2%;
+  background-color: rgb(218, 165, 32, 0.5);
+}
+
+.h1,
+h1 {
+  margin-top: 0;
+  float: left;
+  padding-left: 19rem;
+  font-weight: 650;
+  font-size: 2.3rem;
+  color: var(--bs-heading-color);
+  /* background-color: rgb(218, 165, 32, 0.5); */
+}
+
