@@ -2,13 +2,6 @@
   margin-bottom: 3.5%;
 }
 
-/* .carousel-item.active, .carousel-item .view {
-  height: 40vh!important;
-}
-.carousel-item.active, .carousel-item  {
-  height: 40vh!important;
-} */
-
 .carousel-item img {
   object-fit: cover;
   width:100%!important;
@@ -32,6 +25,5 @@ h1 {
   font-weight: 650;
   font-size: 2.3rem;
   color: var(--bs-heading-color);
-  /* background-color: rgb(218, 165, 32, 0.5); */
 }
 
