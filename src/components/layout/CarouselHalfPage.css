@@ -10,11 +10,11 @@
 
 .carousel-item.active,
 .carousel-item .view {
-  height: 95vh !important;
+  height: 40vh;
 }
 .carousel-item.active,
 .carousel-item {
-  height: 95vh !important;
+  height: 40vh;
 }
 
 .carousel-caption {

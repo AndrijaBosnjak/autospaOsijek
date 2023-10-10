@@ -5,33 +5,33 @@ import carousel_image2 from "../../assets/carousel/carousel_image2.jpg";
 import carousel_image3 from "../../assets/carousel/carousel_image3.jpg";
 import carousel_image4 from "../../assets/carousel/carousel_image4.jpg";
 
-import "./CarouselFullPage.css";
+import "./CarouselHalfPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function CarouselFullPage() {
-  return (
 
+function CarouselHalfPage() {
+  return (
     <Carousel>
-      <Carousel.Item >
-        <img src={carousel_image1} class="d-block w-100" alt="Carousel 1" />
+      <Carousel.Item>
+        <img src={carousel_image1} alt="Carousel 1" />
         <Carousel.Caption>
           <h1>First slide label</h1>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img src={carousel_image2} class="d-block w-100" alt="Carousel 2" />
+        <img src={carousel_image2} alt="Carousel 2" />
         <Carousel.Caption>
           <h1>Second slide label</h1>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img src={carousel_image3} class="d-block w-100" alt="Carousel 3" />
+        <img src={carousel_image3} alt="Carousel 3" />
         <Carousel.Caption>
           <h1>Third slide label</h1>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img src={carousel_image4} class="d-block w-100" alt="Carousel 4" />
+        <img src={carousel_image4} alt="Carousel 4" />
         <Carousel.Caption>
           <h1>Third slide label</h1>
         </Carousel.Caption>
@@ -40,4 +40,4 @@ function CarouselFullPage() {
   );
 }
 
-export default CarouselFullPage;
+export default CarouselHalfPage;
