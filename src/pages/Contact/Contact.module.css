@@ -1,0 +1,19 @@
+.hero {
+    display: flex;
+    flex-direction: column;
+    background-image: url(../../assets/pages_gallery/contact_image.jpg);
+    height: 35vh; 
+    width: 100%;
+    align-self: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+      
+.text {
+    margin-top: 13%; 
+    width: 100%;
+    font-size: 2.5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);     
+}
