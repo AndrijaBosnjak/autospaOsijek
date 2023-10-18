@@ -1,7 +1,7 @@
-import CarouselFullPage from "../components/layout/CarouselFullPage"
-import Footer from "../components/layout/Footer";
+import CarouselFullPage from "../../components/layout/CarouselFullPage/CarouselFullPage"
+import Footer from "../../components/layout/Footer/Footer";
 
-import "./Root.css";
+import "../../components/layout/Common/Root/Root.css";
 
 function ErrorPage () {
     return (

@@ -1,8 +1,7 @@
 import { Outlet } from "react-router-dom";
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
-import CarouselFullPage from "../components/layout/CarouselFullPage";
-
+import Header from "../../Header/Header";
+import Footer from "../../Footer/Footer";
+import CarouselFullPage from "../../CarouselFullPage/CarouselFullPage";
 import "./Root.css"
 
 function RootLayout() {

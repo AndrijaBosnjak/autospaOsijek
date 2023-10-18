@@ -1,9 +1,9 @@
 import Carousel from "react-bootstrap/Carousel";
 
-import carousel_image1 from "../../assets/carousel/carousel_image1.jpg";
-import carousel_image2 from "../../assets/carousel/carousel_image2.jpg";
-import carousel_image3 from "../../assets/carousel/carousel_image3.jpg";
-import carousel_image4 from "../../assets/carousel/carousel_image4.jpg";
+import carousel_image1 from "../../../assets/carousel/carousel_image1.jpg";
+import carousel_image2 from "../../../assets/carousel/carousel_image2.jpg";
+import carousel_image3 from "../../../assets/carousel/carousel_image3.jpg";
+import carousel_image4 from "../../../assets/carousel/carousel_image4.jpg";
 
 import "./CarouselFullPage.css";
 import "bootstrap/dist/css/bootstrap.min.css";

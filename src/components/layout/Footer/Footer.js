@@ -18,9 +18,9 @@ function Footer() {
           <h3>Auto Spa Osijek</h3>
 
           <p class="footer-links">
-            <Link to="">Početna</Link> |<Link to="offer">Ponuda</Link>|
-            <Link to="orderCar">Naruči</Link>|<Link to="purchaseCar">Otkup</Link>|<Link to="warranty">Jamstvo</Link>
-            |<Link to="carCleaning">Njega auta</Link>|<Link to="contact">Kontakt</Link>
+            <Link to="">Početna</Link> |<Link to="ponuda">Ponuda</Link>|
+            <Link to="narucivozilo">Naruči</Link>|<Link to="otkupvozila">Otkup</Link>|<Link to="jamstvo">Jamstvo</Link>
+            |<Link to="njegavozila">Njega auta</Link>|<Link to="kontakt">Kontakt</Link>
           </p>
 
           <p class="footer-company-name">© 2023. Auto Spa Osijek d.o.o.</p>
