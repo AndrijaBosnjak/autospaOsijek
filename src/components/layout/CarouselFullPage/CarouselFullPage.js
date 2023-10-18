@@ -1,17 +1,18 @@
 import Carousel from "react-bootstrap/Carousel";
 
-import carousel_image1 from "../../assets/carousel/carousel_image1.jpg";
-import carousel_image2 from "../../assets/carousel/carousel_image2.jpg";
-import carousel_image3 from "../../assets/carousel/carousel_image3.jpg";
-import carousel_image4 from "../../assets/carousel/carousel_image4.jpg";
+import carousel_image1 from "../../../assets/carousel/carousel_image1.jpg";
+import carousel_image2 from "../../../assets/carousel/carousel_image2.jpg";
+import carousel_image3 from "../../../assets/carousel/carousel_image3.jpg";
+import carousel_image4 from "../../../assets/carousel/carousel_image4.jpg";
 
-import "bootstrap/dist/css/bootstrap.min.css";
 import "./CarouselFullPage.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function CarouselFullPage() {
   return (
+
     <Carousel>
-      <Carousel.Item>
+      <Carousel.Item >
         <img src={carousel_image1} class="d-block w-100" alt="Carousel 1" />
         <Carousel.Caption>
           <h1>First slide label</h1>

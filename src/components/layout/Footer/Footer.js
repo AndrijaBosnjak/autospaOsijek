@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faLocationDot,
@@ -17,9 +18,9 @@ function Footer() {
           <h3>Auto Spa Osijek</h3>
 
           <p class="footer-links">
-            <a href="#">Početna</a>|<a href="#">Ponuda</a>|
-            <a href="#">Naruči</a>|<a href="#">Otkup</a>|<a href="#">Jamstvo</a>
-            |<a href="#">Njega auta</a>|<a href="#">Kontakt</a>
+            <Link to="">Početna</Link> |<Link to="ponuda">Ponuda</Link>|
+            <Link to="narucivozilo">Naruči</Link>|<Link to="otkupvozila">Otkup</Link>|<Link to="jamstvo">Jamstvo</Link>
+            |<Link to="njegavozila">Njega auta</Link>|<Link to="kontakt">Kontakt</Link>
           </p>
 
           <p class="footer-company-name">© 2023. Auto Spa Osijek d.o.o.</p>
@@ -75,7 +76,7 @@ function Footer() {
           <div class="footer-icons">
             <a
               href="https://www.facebook.com/p/Auto-Spa-rabljena-vozila-100063674256957/"
-              target="_blank"
+              target="_blank" rel="noreferrer"
             >
               <FontAwesomeIcon
                 icon={faFacebookF}
@@ -83,7 +84,7 @@ function Footer() {
                 style={{ color: "#ffffff" }}
               />
             </a>
-            <a href="https://www.instagram.com/auto_spa_osijek/" target="_blank">
+            <a href="https://www.instagram.com/explore/tags/autospaosijek/" target="_blank" rel="noreferrer">
               <FontAwesomeIcon
                 icon={faInstagram}
                 size="lg"
@@ -91,7 +92,7 @@ function Footer() {
                 target="_blank"
               />
             </a>
-            <a href="https://www.njuskalo.hr/trgovina/autospa" target="_blank">
+            <a href="https://www.njuskalo.hr/trgovina/autospa" target="_blank" rel="noreferrer">
               <FontAwesomeIcon
                 icon={faDog}
                 size="lg"
