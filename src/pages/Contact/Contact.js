@@ -1,3 +1,4 @@
+import ContactForm from "components/ContactForm/ContactForm";
 import classes from "./Contact.module.css";
 
 function Contact() {
@@ -9,7 +10,7 @@ function Contact() {
         </div>
       </div>
       <div>
-        <p>stranica za adresu broj telefona i kurac palac</p>
+        <ContactForm />
       </div>
     </>
   );

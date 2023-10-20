@@ -12,21 +12,21 @@ import "./Footer.css";
 
 function Footer() {
   return (
-    <div class="footer-wrap">
-      <div class="footer-distributed">
-        <div class="footer-left">
+    <div className="footer-wrap">
+      <div className="footer-distributed">
+        <div className="footer-left">
           <h3>Auto Spa Osijek</h3>
 
-          <p class="footer-links">
+          <p className="footer-links">
             <Link to="">Početna</Link> |<Link to="ponuda">Ponuda</Link>|
             <Link to="narucivozilo">Naruči</Link>|<Link to="otkupvozila">Otkup</Link>|<Link to="jamstvo">Jamstvo</Link>
             |<Link to="njegavozila">Njega auta</Link>|<Link to="kontakt">Kontakt</Link>
           </p>
 
-          <p class="footer-company-name">© 2023. Auto Spa Osijek d.o.o.</p>
+          <p className="footer-company-name">© 2023. Auto Spa Osijek d.o.o.</p>
         </div>
 
-        <div class="footer-center">
+        <div className="footer-center">
           <div>
             <FontAwesomeIcon
               className="awesome-icons"
@@ -67,13 +67,13 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div class="footer-right">
-          <p class="footer-company-about">
+        <div className="footer-right">
+          <p className="footer-company-about">
             <span>Prodaja rabljenih vozila</span>
             Svako naše vozilo je pregledano u servisu te je spremno za tehnički
             pregled. <br></br>Za svako vozilo izdajemo jamstvo.
           </p>
-          <div class="footer-icons">
+          <div className="footer-icons">
             <a
               href="https://www.facebook.com/p/Auto-Spa-rabljena-vozila-100063674256957/"
               target="_blank" rel="noreferrer"

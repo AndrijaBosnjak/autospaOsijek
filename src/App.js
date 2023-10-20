@@ -2,10 +2,10 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { RootLayout } from "./components";
-import { HomePage, CarOffer, PurchaseCar, Warranty, OrderCar, CarCleaning, ErrorPage, Contact } from "./pages";
+import { RootLayout } from "components"; 
+import { HomePage, CarOffer, PurchaseCar, Warranty, OrderCar, CarCleaning, ErrorPage, Contact } from "pages";
 
-const router = createBrowserRouter([
+const router = createBrowserRouter([ 
   {
     element: <RootLayout />,
     errorElement: <ErrorPage />,
@@ -31,4 +31,4 @@ function App() {
   return <RouterProvider router={router} />;
 }
 
-export default App;
+export default App; 
