@@ -5,14 +5,7 @@ import classes from "./ContactForm.module.css";
 const isEmpty = (value) => value.trim() === "";
 
 function ContactForm() {
-  // const [state, setState] = useState({
-  //   firstname: "",
-  //   lastname: "",
-  //   email: "",
-  //   phoneNumber: "",
-  //   message: "",
-  // });
-
+    
   const [formInputValidity, setFormInputValidity] = useState({
     firstname: true,
     lastname: true,
@@ -29,8 +22,7 @@ function ContactForm() {
 
   const onSubmitForm = (event) => {
     event.preventDefault();
-    // console.log(state);
-
+    
     const enteredFirstName = firstNameInputRef.current.value;
     const enteredLastName = lastNameInputRef.current.value;
     const enteredEmail = emailInputRef.current.value;
@@ -44,7 +36,7 @@ function ContactForm() {
     const enteredMessageIsValid = !isEmpty(enteredMessage);
 
     setFormInputValidity({
-      firstname: enteredEmailIsValid,
+      firstname: enteredFirstNameIsValid,
       lastname: enteredLastNameIsValid,
       email: enteredEmailIsValid,
       phoneNumber: enteredPhoneNumberIsValid,
@@ -62,22 +54,24 @@ function ContactForm() {
       return;
     }
 
-    console.log(
-      enteredFirstName,
-      enteredLastName,
-      enteredEmail,
-      enteredPhoneNumber,
-      enteredMessage
-    );
+    onClearForm();
   };
 
-  // const onInputChange = (event) => {
-  //   const { id, value } = event.target;
-  //   setState((prevState) => ({
-  //     ...prevState,
-  //     [id]: value,
-  //   }));
-  // };
+  const onClearForm = () => {
+    firstNameInputRef.current.value = "";
+    lastNameInputRef.current.value = "";
+    emailInputRef.current.value = "";
+    phoneNumberInputRef.current.value = "";
+    messageInputRef.current.value = "";
+    
+    setFormInputValidity({
+      firstname: true,
+      lastname: true,
+      email: true,
+      phoneNumber: true,
+      message: true,
+    });
+  }
 
   return (
     <div>
@@ -86,7 +80,6 @@ function ContactForm() {
         <input
           id="firstname"
           type="text"
-          // onChange={onInputChange}
           ref={firstNameInputRef}
         />
         {!formInputValidity.firstname && <p>Molim upišite ispravno ime!</p>}
@@ -95,7 +88,6 @@ function ContactForm() {
         <input
           id="lastname"
           type="text"
-          // onChange={onInputChange}
           ref={lastNameInputRef}
         />
         {!formInputValidity.lastname && <p>Molim upišite ispravno prezime!</p>}
@@ -103,7 +95,6 @@ function ContactForm() {
         <input
           id="email"
           type="text"
-          // onChange={onInputChange}
           ref={emailInputRef}
         />
         {!formInputValidity.email && (
@@ -113,7 +104,6 @@ function ContactForm() {
         <input
           id="phoneNumber"
           type="text"
-          // onChange={onInputChange}
           ref={phoneNumberInputRef}
         />
         {!formInputValidity.phoneNumber && (
@@ -123,19 +113,18 @@ function ContactForm() {
         <textarea
           id="message"
           type="text"
-          // onChange={onInputChange}
           ref={messageInputRef}
         />
         {!formInputValidity.message && <p>Molim upišite ispravnu poruku!</p>}
-        <button className={classes.button} type="button" >
+        <button className={classes.button} type="button" onClick={onClearForm} >
           Očisti
         </button>
-        <button className={classes.button} type="submit">
+        <button className={classes.button} type="submit" >
           Pošaljite
         </button>
       </form>
     </div>
   );
-}
+};
 
 export default ContactForm;
