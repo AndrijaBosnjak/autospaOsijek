@@ -1,28 +1,41 @@
-.input {
-    margin: 2rem auto;
-    padding: 1rem;
-    width: 90%;
-    max-width: 40rem;
+.form {
+    width: 37rem;
+    height:fit-content;
+    background-color: white;
+    padding:  2.5rem 2.5rem 2.5rem 2.5rem;
+    margin-bottom: 5rem;
+  }
+
+  .h3 {
+    font-size: 2rem;
+    color: black;
   }
   
   .input label {
     display: block;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+    font-size: 0.8rem;
+    margin-bottom: 0.2rem;
   }
-  
+
   .input input {
     font: inherit;
     display: block;
     width: 100%;
-    border: 1px solid #ccc;
+    height: 2.4rem;
+    border: 1px solid black;
     padding: 0.15rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
   }
   
+  .input input:hover {
+    outline: none;
+    border-color: goldenrod;
+  }
+
   .input input:focus {
     outline: none;
-    border-color: #4f005f;
+    border-color: goldenrod;
+    background-color: rgb(255, 219, 127)
   }
 
   .input textarea {
@@ -31,39 +44,53 @@
     width: 100%;
     border: 1px solid #ccc;
     padding: 0.15rem;
-    margin-bottom: 0.5rem;
   }
 
   .input textarea:focus {
     outline: none;
-    border-color: #4f005f;
+    border-color: goldenrod;
   }
 
+  input::placeholder {
+    position:absolute;
+    top:0.4rem;
+  }
+  
   .button {
     font: inherit;
-    border: 1px solid #4f005f;
-    background: #4f005f;
+    border: 1px solid black;
+    width: 100%;
+    background: black;
     color: white;
     padding: 0.25rem 1rem;
     cursor: pointer;
+    margin-top: 1rem;;
     margin-right: 10px;
   }
   
   .button:hover,
   .button:active {
-    background: #741188;
-    border-color: #741188;
+    color: black;
+    background: goldenrod;
+    border-color: black;
   }
   
   .button:focus {
     outline: none;
   }
 
-.invalid label {
-  color:aqua;
+.error_text {
+  font-size: 0.8rem;
+  color: red;
 }
 
-.invalid input {
-  border-color: aquamarine;
-  background-color: red;
+.submitMessage {
+  margin-top: 1.5rem;
+  font: 1.5rem;
+  font-weight: 500;
+  color: black;
+}
+
+.p {
+  font-size: 0.8rem;
 }

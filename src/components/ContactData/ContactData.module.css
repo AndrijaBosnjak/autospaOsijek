@@ -1,0 +1,33 @@
+:root {
+    --font-color-primary:goldenrod;
+    --font-color-secondary: white;
+    --background-color: black;
+  }
+
+.container {
+    height:fit-content;
+    width: fit-content;
+    padding-top: 0;
+    background-color: var(--background-color);
+}
+.awesomeIcons {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    padding-bottom: 0,3rem;
+    padding-right: 1rem;
+    }
+
+.p {
+    display: inline-block;
+    color: var(--font-color-secondary);
+    }
+
+.a {
+    color: var(--font-color-primary);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--font-color-secondary);
+    }

@@ -1,130 +1,184 @@
-import { useRef, useState } from "react";
+import { useState, useMemo } from "react";
+
+import {
+  isLettersOnly,
+  isInputFieldEmpty,
+  isNumbersOnly,
+} from "./validation.js";
+import Input from "./Input.js";
 
 import classes from "./ContactForm.module.css";
 
-const isEmpty = (value) => value.trim() === "";
-
-function ContactForm() {
-    
-  const [formInputValidity, setFormInputValidity] = useState({
-    firstname: true,
-    lastname: true,
-    email: true,
-    phoneNumber: true,
-    message: true,
+const InputFormNew = () => {
+  const [formInputs, setFormInputs] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
-  const firstNameInputRef = useRef();
-  const lastNameInputRef = useRef();
-  const emailInputRef = useRef();
-  const phoneNumberInputRef = useRef();
-  const messageInputRef = useRef();
+  const [didEdit, setDidEdit] = useState({
+    name: false,
+    email: false,
+    phone: false,
+    message: false,
+  });
 
-  const onSubmitForm = (event) => {
-    event.preventDefault();
-    
-    const enteredFirstName = firstNameInputRef.current.value;
-    const enteredLastName = lastNameInputRef.current.value;
-    const enteredEmail = emailInputRef.current.value;
-    const enteredPhoneNumber = phoneNumberInputRef.current.value;
-    const enteredMessage = messageInputRef.current.value;
+  const [formIsSubmitted, setFormIsSubmitted] = useState(false);
 
-    const enteredFirstNameIsValid = !isEmpty(enteredFirstName);
-    const enteredLastNameIsValid = !isEmpty(enteredLastName);
-    const enteredEmailIsValid = !isEmpty(enteredEmail);
-    const enteredPhoneNumberIsValid = !isEmpty(enteredPhoneNumber);
-    const enteredMessageIsValid = !isEmpty(enteredMessage);
+  const isEnteredNameIsValid = useMemo(
+    () => isLettersOnly(formInputs.name),
+    [formInputs.name]
+  );
+  const isEnteredEmailIsValid = useMemo(
+    () => isInputFieldEmpty(formInputs.email),
+    [formInputs.email]
+  );
+  const isEnteredPhoneIsValid = useMemo(
+    () => isNumbersOnly(formInputs.phone),
+    [formInputs.phone]
+  );
+  const isEnteredMessageIsValid = useMemo(
+    () => isLettersOnly(formInputs.message),
+    [formInputs.message]
+  );
 
-    setFormInputValidity({
-      firstname: enteredFirstNameIsValid,
-      lastname: enteredLastNameIsValid,
-      email: enteredEmailIsValid,
-      phoneNumber: enteredPhoneNumberIsValid,
-      message: enteredMessageIsValid,
+  const isNameIsInvalid = useMemo(
+    () => didEdit.name && !isEnteredNameIsValid,
+    [didEdit.name, isEnteredNameIsValid]
+  );
+  const isEmailIsInvalid = useMemo(
+    () => didEdit.email && !isEnteredEmailIsValid,
+    [didEdit.email, isEnteredEmailIsValid]
+  );
+  const isPhoneIsInvalid = useMemo(
+    () => didEdit.phone && !isEnteredPhoneIsValid,
+    [didEdit.phone, isEnteredPhoneIsValid]
+  );
+  const isMessageIsInvalid = useMemo(
+    () => didEdit.message && !isEnteredMessageIsValid,
+    [didEdit.message, isEnteredMessageIsValid]
+  );
+
+  let formIsValid = false;
+
+  if (
+    isEnteredNameIsValid &&
+    isEnteredEmailIsValid &&
+    isEnteredPhoneIsValid &&
+    isEnteredMessageIsValid
+  ) {
+    formIsValid = true;
+  }
+
+  const formReset = () => {
+    setFormInputs({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
     });
 
-    const formIsValid =
-      enteredFirstNameIsValid &&
-      enteredLastNameIsValid &&
-      enteredEmailIsValid &&
-      enteredPhoneNumberIsValid &&
-      enteredMessageIsValid;
+    setDidEdit({
+      name: false,
+      email: false,
+      phone: false,
+      message: false,
+    });
+  };
+
+  const onFormSubmit = (event) => {
+    event.preventDefault();
 
     if (!formIsValid) {
       return;
     }
+    
+    setFormIsSubmitted(true);
 
-    onClearForm();
+    formReset();
   };
 
-  const onClearForm = () => {
-    firstNameInputRef.current.value = "";
-    lastNameInputRef.current.value = "";
-    emailInputRef.current.value = "";
-    phoneNumberInputRef.current.value = "";
-    messageInputRef.current.value = "";
-    
-    setFormInputValidity({
-      firstname: true,
-      lastname: true,
-      email: true,
-      phoneNumber: true,
-      message: true,
-    });
-  }
+  const onChangeInput = (event) => {
+    const { id, value } = event.target;
+    setFormInputs((prevState) => ({
+      ...prevState,
+      [id]: value,
+    }));
+
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [id]: false,
+    }));
+  };
+
+  const onBlurInput = (id) => {
+    setDidEdit((prevEdit) => ({
+      ...prevEdit,
+      [id]: true,
+    }));
+  };
 
   return (
-    <div>
-      <form className={classes.input} onSubmit={onSubmitForm}>
-        <label htmlFor="firstname">Ime</label>
-        <input
-          id="firstname"
+    <form className={classes.form} onSubmit={onFormSubmit}>
+      <h3 className={classes.h3}>Pošaljite upit</h3>
+      <div className={classes.input}>
+        <Input
+          label="Ime i prezime"
+          id="name"
           type="text"
-          ref={firstNameInputRef}
+          name="name"
+          placeholder="Upišite ovdje"
+          onBlur={() => onBlurInput("name")}
+          onChange={onChangeInput}
+          value={formInputs.name}
+          error={isNameIsInvalid && "Molim vas upišite Vaše ime i prezime."}
         />
-        {!formInputValidity.firstname && <p>Molim upišite ispravno ime!</p>}
-
-        <label htmlFor="lastname">Prezime</label>
-        <input
-          id="lastname"
-          type="text"
-          ref={lastNameInputRef}
-        />
-        {!formInputValidity.lastname && <p>Molim upišite ispravno prezime!</p>}
-        <label htmlFor="email">E-mail</label>
-        <input
+        <Input
+          label="Email adresa"
           id="email"
           type="text"
-          ref={emailInputRef}
+          name="email"
+          placeholder="primjer@email.com"
+          onBlur={() => onBlurInput("email")}
+          onChange={onChangeInput}
+          value={formInputs.email}
+          error={isEmailIsInvalid && "Molim Vas upišite Vašu e-mail adresu."}
         />
-        {!formInputValidity.email && (
-          <p>Molim upišite ispravnu e-mail adresu!</p>
-        )}
-        <label htmlFor="phoneNumber">Broj telefona</label>
-        <input
-          id="phoneNumber"
+        <Input
+          label="Broj telefona"
+          id="phone"
           type="text"
-          ref={phoneNumberInputRef}
+          name="phone"
+          placeholder="Upišite ovdje"
+          onBlur={() => onBlurInput("phone")}
+          onChange={onChangeInput}
+          value={formInputs.phone}
+          error={isPhoneIsInvalid && "Molim Vas upišite Vaš broj telefona."}
         />
-        {!formInputValidity.phoneNumber && (
-          <p>Molim upišite ispravni broj telefona!</p>
-        )}
-        <label htmlFor="message">Vaša poruka</label>
-        <textarea
+        <Input
+          label="Upit"
           id="message"
           type="text"
-          ref={messageInputRef}
+          name="message"
+          placeholder="Upišite ovdje"
+          onBlur={() => onBlurInput("message")}
+          onChange={onChangeInput}
+          value={formInputs.message}
+          error={isMessageIsInvalid && "Molim Vas upišite Vašu poruku."}
+          style={{ height: "6rem" }}
         />
-        {!formInputValidity.message && <p>Molim upišite ispravnu poruku!</p>}
-        <button className={classes.button} type="button" onClick={onClearForm} >
-          Očisti
-        </button>
-        <button className={classes.button} type="submit" >
-          Pošaljite
-        </button>
-      </form>
-    </div>
+        <div>
+          <button type="submit" className={classes.button}>
+            Pošalji upit
+          </button>
+          <p className={classes.p}>Sva polja moraju biti ispunjena</p>
+
+          {formIsSubmitted && <p className={classes.submitMessage}>Zahvaljujemo se na poslanom upitu.</p>}
+        </div>
+      </div>
+    </form>
   );
 };
 
-export default ContactForm;
+export default InputFormNew;
